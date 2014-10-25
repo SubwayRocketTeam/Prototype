@@ -43,10 +43,10 @@ void Sheep::update(float dt) {
 	this->move(dt);
 
 	AttackManager* manager = AttackManager::getInstance();
-	for (AttackInfoCircle info : *(manager->getMobDamageVector())) {
-		if (Collision::collisionCircle(this->getPosition(), this->getContentSize().width / 2, info.position, info.radius)) {
-			this->setOpacity(this->getOpacity() - 255 * info.damage / this->maxhp);
-			this->hp -= info.damage;
+	for (AttackInfo* info : *(manager->getMobDamageVector())) {
+		if (info->collision(this)) {
+			this->hp -= info->damage;
+			this->setOpacity(this->getOpacity() - 255 * info->damage / this->maxhp);
 		}
 	}
 

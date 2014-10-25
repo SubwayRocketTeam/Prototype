@@ -69,7 +69,7 @@ void GameScene::update(float dt) {
 	}
 
 	AttackManager* manager = AttackManager::getInstance();
-	manager->clear();
+	manager->clearMobDamageVector();
 }
 
 void GameScene::createSheep() {

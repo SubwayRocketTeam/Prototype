@@ -28,11 +28,12 @@ void Character::update(float dt) {
 	move(dt);
 
 	AttackManager* manager = AttackManager::getInstance();
-	for (AttackInfoCircle info : *(manager->getUserDamageVector())) {
-		if (Collision::collisionCircle(this->getPosition(), this->getContentSize().width / 2, info.position, info.radius)) {
-			this->hp -= info.damage;
+	for (AttackInfo* info : *(manager->getUserDamageVector())) {
+		if (info->collision(this)) {
+			this->hp -= info->damage;
 		}
 	}
+	manager->clearUserDamageVector();
 }
 
 bool Character::init() {
