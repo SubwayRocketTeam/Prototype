@@ -79,3 +79,19 @@ void GameScene::createSheep() {
 
 	this->addChild(sheep);
 }
+
+GameScene* GameScene::create()
+{
+	GameScene *pRet = new GameScene();
+	if (pRet && pRet->init())
+	{
+		pRet->autorelease();
+		return pRet;
+	}
+	else
+	{
+		delete pRet;
+		pRet = NULL;
+		return NULL;
+	}
+}

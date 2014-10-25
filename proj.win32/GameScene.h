@@ -19,6 +19,7 @@ public:
 	void update(float dt) override;
 
 	void createSheep();
+	//CREATE_FUNC(GameScene);
 
-	CREATE_FUNC(GameScene);
+	static GameScene* create();
 };

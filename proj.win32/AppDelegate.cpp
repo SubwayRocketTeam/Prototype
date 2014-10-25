@@ -1,6 +1,5 @@
 #include "AppDelegate.h"
-#include "HelloWorldScene.h"
-#include "proj.win32\GameScene.h"
+#include "GameScene.h"
 
 USING_NS_CC;
 
