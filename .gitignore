@@ -71,7 +71,6 @@ packages/
 .cocos-project.json
 CMakeLists.txt
 
-Classes/
 proj.android/
 proj.ios_mac/
 proj.linux/
