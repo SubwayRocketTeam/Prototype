@@ -8,7 +8,6 @@ class Sheep;
 class MobPool : public cocos2d::Node {
 
 private:
-	cocos2d::Vector<Sheep*>* sheepList;
 	cocos2d::Vec2 targetPos;
 	cocos2d::Size targetSize;
 public:
