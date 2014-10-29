@@ -42,9 +42,8 @@ void GameScene::update(float dt) {
 		Director::getInstance()->end();
 		return;
 	}
-	else {
-		character->update(dt);
-	}
+	
+	character->update(dt);
 
 	pool->update(dt);
 	pool->setTargetInfo(character);
