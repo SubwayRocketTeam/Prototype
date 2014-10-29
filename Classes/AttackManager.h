@@ -36,5 +36,9 @@ public:
 
 	void applyDamage(Character* obj);
 	void applyDamage(Sheep* obj);
+
+	void clearToMobDamagerVector() {
+		toMobDamageVector->clear();
+	}
 };
 

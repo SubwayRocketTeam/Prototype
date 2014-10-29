@@ -4,12 +4,13 @@
 
 class Sheep;
 class Character;
+class MobPool;
 
 class GameScene : public cocos2d::Scene {
 
 private:
 	Character* character;
-	cocos2d::Vector<Sheep*>* sheepList;
+	MobPool* pool;
 public:
 	GameScene();
 	virtual ~GameScene();
@@ -17,7 +18,5 @@ public:
 	bool init() override;
 
 	void update(float dt) override;
-
-	void createSheep();
 	CREATE_FUNC(GameScene);
 };

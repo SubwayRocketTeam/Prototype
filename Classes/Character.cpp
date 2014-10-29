@@ -49,6 +49,7 @@ bool Character::initWithFile(char* filename) {
 	auto mouseListener = EventListenerMouse::create();
 	mouseListener->onMouseDown = CC_CALLBACK_1(Character::onMouseDown, this);
 	mouseListener->onMouseUp = CC_CALLBACK_1(Character::onMouseUp, this);
+	mouseListener->onMouseMove = CC_CALLBACK_1(Character::onMouseMove, this);
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(mouseListener, this);
 
 	this->setAnchorPoint(Vec2(0.5f, 0.5f));
@@ -98,4 +99,12 @@ void Character::onMouseDown(Event* _event) {
 
 void Character::onMouseUp(Event* _event) {
 	EventMouse* e = (EventMouse*)_event;
+}
+
+void Character::onMouseMove(Event* _event) {
+	EventMouse* e = (EventMouse*)_event;
+
+	log("Cursor X : %f", e->getCursorX());
+	log("Cursor Y : %f", e->getCursorY());
+	//this->setRotation(CC_RADIANS_TO_DEGREES(atan((e->getCursorX() - direction.x) / (e->getCursorY() - direction.y))));
 }

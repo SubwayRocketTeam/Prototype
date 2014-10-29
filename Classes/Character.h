@@ -24,6 +24,7 @@ public:
 
 	void onMouseDown(cocos2d::Event* _event);
 	void onMouseUp(cocos2d::Event* _event);
+	void onMouseMove(cocos2d::Event* _event);
 
 	CREATE_SPRITE_FUNC(Character);
 };

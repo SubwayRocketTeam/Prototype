@@ -65,5 +65,4 @@ void AttackManager::applyDamage(Sheep* obj) {
 			obj->sufferDamage(info->damage);
 		}
 	}
-	toMobDamageVector->clear();
 }

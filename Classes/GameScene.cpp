@@ -2,6 +2,7 @@
 #include "Sheep.h"
 #include "AttackManager.h"
 #include "Character.h"
+#include "MobPool.h"
 
 USING_NS_CC;
 
@@ -26,11 +27,11 @@ bool GameScene::init() {
 	character = Character::create("red.png");
 	character->setPosition(100, 100);
 
-	sheepList = new Vector<Sheep*>();
-
-	createSheep();
+	pool = MobPool::create();
+	pool->createSheep();
 
 	this->addChild(character);
+	this->addChild(pool);
 
 	return true;
 }
@@ -45,34 +46,6 @@ void GameScene::update(float dt) {
 		character->update(dt);
 	}
 
-	int eraseSheepCount = 0;
-	auto it = sheepList->begin();
-	while (it != sheepList->end()) {
-		Sheep* obj = (*it);
-
-		obj->setTargetPosition(character->getPosition());
-		obj->setTargetSize(character->getContentSize());
-		obj->update(dt);
-
-		if (!obj->isAlive()) {
-			this->removeChild(obj);
-			it = sheepList->erase(it);
-			eraseSheepCount++;
-		}
-		else {
-			it++;
-		}
-	}
-
-	for (int i = 0; i < eraseSheepCount * 2; i++) {
-		this->createSheep();
-	}
-}
-
-void GameScene::createSheep() {
-	Sheep* sheep = Sheep::create("sheep.png");
-	sheep->setPosition(rand()%800, rand()%480);
-	sheepList->pushBack(sheep);
-
-	this->addChild(sheep);
+	pool->update(dt);
+	pool->setTargetInfo(character);
 }
