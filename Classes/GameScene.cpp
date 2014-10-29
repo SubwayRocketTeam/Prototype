@@ -67,9 +67,6 @@ void GameScene::update(float dt) {
 	for (int i = 0; i < eraseSheepCount * 2; i++) {
 		this->createSheep();
 	}
-
-	AttackManager* manager = AttackManager::getInstance();
-	manager->clearMobDamageVector();
 }
 
 void GameScene::createSheep() {
@@ -78,20 +75,4 @@ void GameScene::createSheep() {
 	sheepList->pushBack(sheep);
 
 	this->addChild(sheep);
-}
-
-GameScene* GameScene::create()
-{
-	GameScene *pRet = new GameScene();
-	if (pRet && pRet->init())
-	{
-		pRet->autorelease();
-		return pRet;
-	}
-	else
-	{
-		delete pRet;
-		pRet = NULL;
-		return NULL;
-	}
 }

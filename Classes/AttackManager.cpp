@@ -1,6 +1,8 @@
 #include "AttackManager.h"
 #include "Collision.h"
 #include "GameObject.h"
+#include "Character.h"
+#include "Sheep.h"
 
 USING_NS_CC;
 
@@ -44,14 +46,24 @@ void AttackManager::attackFromMobToUser(int range, int damage, Vec2 position) {
 	toUserDamageVector->push_back(info);
 }
 
-void AttackManager::clearMobDamageVector() {
-	toMobDamageVector->clear();
+bool AttackInfoCircle::collision(GameObject* obj) {
+	return Collision::collisionCircle(obj->getPosition(), obj->getContentSize().width / 2, this->position, this->radius);
 }
 
-void AttackManager::clearUserDamageVector() {
+void AttackManager::applyDamage(Character* obj) {
+	for (AttackInfo* info : *toUserDamageVector) {
+		if (info->collision(obj)) {
+			obj->sufferDamage(info->damage);
+		}
+	}
 	toUserDamageVector->clear();
 }
 
-bool AttackInfoCircle::collision(GameObject* obj) {
-	return Collision::collisionCircle(obj->getPosition(), obj->getContentSize().width / 2, this->position, this->radius);
+void AttackManager::applyDamage(Sheep* obj) {
+	for (AttackInfo* info : *toMobDamageVector) {
+		if (info->collision(obj)) {
+			obj->sufferDamage(info->damage);
+		}
+	}
+	toMobDamageVector->clear();
 }

@@ -25,15 +25,10 @@ void Character::move(float dt) {
 }
 
 void Character::update(float dt) {
-	move(dt);
+	GameObject::update(dt);
 
 	AttackManager* manager = AttackManager::getInstance();
-	for (AttackInfo* info : *(manager->getUserDamageVector())) {
-		if (info->collision(this)) {
-			this->hp -= info->damage;
-		}
-	}
-	manager->clearUserDamageVector();
+	manager->applyDamage(this);
 }
 
 bool Character::init() {
@@ -57,14 +52,6 @@ bool Character::initWithFile(char* filename) {
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(mouseListener, this);
 
 	this->setAnchorPoint(Vec2(0.5f, 0.5f));
-
-	/*rangeSprite = Sprite::create("range.png");
-	rangeSprite->setOpacity(rangeSprite->getOpacity() / 2);
-	rangeSprite->setAnchorPoint(Vec2(0, 0));
-	rangeSprite->setPosition(0, 0);
-	rangeSprite->setScale(2);
-
-	this->addChild(rangeSprite);*/
 
 	return true;
 }

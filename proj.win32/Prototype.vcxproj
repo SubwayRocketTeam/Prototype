@@ -137,25 +137,25 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     </PreLinkEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="AppDelegate.cpp" />
-    <ClCompile Include="AttackManager.cpp" />
-    <ClCompile Include="Character.cpp" />
-    <ClCompile Include="Collision.cpp" />
-    <ClCompile Include="GameObject.cpp" />
-    <ClCompile Include="GameScene.cpp" />
+    <ClCompile Include="..\Classes\AppDelegate.cpp" />
+    <ClCompile Include="..\Classes\AttackManager.cpp" />
+    <ClCompile Include="..\Classes\Character.cpp" />
+    <ClCompile Include="..\Classes\Collision.cpp" />
+    <ClCompile Include="..\Classes\GameObject.cpp" />
+    <ClCompile Include="..\Classes\GameScene.cpp" />
+    <ClCompile Include="..\Classes\Sheep.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Sheep.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AppDelegate.h" />
-    <ClInclude Include="AttackManager.h" />
-    <ClInclude Include="Character.h" />
-    <ClInclude Include="Collision.h" />
-    <ClInclude Include="CustomPlatformMacros.h" />
-    <ClInclude Include="GameObject.h" />
-    <ClInclude Include="GameScene.h" />
+    <ClInclude Include="..\Classes\AppDelegate.h" />
+    <ClInclude Include="..\Classes\AttackManager.h" />
+    <ClInclude Include="..\Classes\Character.h" />
+    <ClInclude Include="..\Classes\Collision.h" />
+    <ClInclude Include="..\Classes\CustomPlatformMacros.h" />
+    <ClInclude Include="..\Classes\GameObject.h" />
+    <ClInclude Include="..\Classes\GameScene.h" />
+    <ClInclude Include="..\Classes\Sheep.h" />
     <ClInclude Include="main.h" />
-    <ClInclude Include="Sheep.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\cocos2d\cocos\2d\libcocos2d.vcxproj">

@@ -1,4 +1,5 @@
 #include "GameObject.h"
+#include "AttackManager.h"
 
 GameObject::GameObject() :
  hp(0), damage(0), speed(0), direction(cocos2d::Vec2(0, 0)), position(cocos2d::Vec2(0, 0)) {
@@ -23,4 +24,10 @@ bool GameObject::initWithFile(char* filename) {
 	}
 
 	return true;
+}
+
+void GameObject::update(float dt) {
+	move(dt);
+
+	this->setOpacity((float)hp / maxhp * 255);
 }

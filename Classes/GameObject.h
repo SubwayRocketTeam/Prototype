@@ -15,7 +15,7 @@ protected:
 	cocos2d::Vec2 position;
 public:
 	GameObject();
-	~GameObject();
+	virtual ~GameObject();
 
 	virtual bool init();
 	virtual bool initWithFile(char* filename);
@@ -23,9 +23,13 @@ public:
 	virtual void attack(float dt) = 0;
 	virtual void move(float dt) = 0;
 
-	virtual void update(float dt) = 0;
+	virtual void update(float dt);
 
 	bool isAlive() {
 		return hp > 0;
+	}
+
+	void sufferDamage(int damage) {
+		hp -= damage;
 	}
 };

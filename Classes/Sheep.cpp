@@ -8,7 +8,7 @@ Sheep::Sheep() {
 	speed = 50;
 	maxhp = 25;
 	hp = maxhp;
-	damage = 5;
+	damage = 1;
 }
 
 Sheep::~Sheep() {
@@ -31,8 +31,8 @@ bool Sheep::initWithFile(char* filename) {
 }
 
 void Sheep::attack(float dt) {
-	AttackManager* attack = AttackManager::getInstance();
-	attack->attackFromMobToUser(this->getContentSize().width * 2, this->damage, this->getPosition());
+	AttackManager* manager = AttackManager::getInstance();
+	manager->attackFromMobToUser(this->getContentSize().width * 2, this->damage, this->getPosition());
 }
 
 void Sheep::move(float dt) {
@@ -40,15 +40,10 @@ void Sheep::move(float dt) {
 }
 
 void Sheep::update(float dt) {
-	this->move(dt);
+	GameObject::update(dt);
 
 	AttackManager* manager = AttackManager::getInstance();
-	for (AttackInfo* info : *(manager->getMobDamageVector())) {
-		if (info->collision(this)) {
-			this->hp -= info->damage;
-			this->setOpacity(this->getOpacity() - 255 * info->damage / this->maxhp);
-		}
-	}
+	manager->applyDamage(this);
 
 	if (Collision::collisionCircle(this->getPosition(), this->getContentSize().width / 2, targetPosition, targetSize.width / 2)) {
 		attack(dt);

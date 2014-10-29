@@ -15,25 +15,25 @@
     <ClCompile Include="main.cpp">
       <Filter>win32</Filter>
     </ClCompile>
-    <ClCompile Include="AttackManager.cpp">
+    <ClCompile Include="..\Classes\AppDelegate.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="Character.cpp">
+    <ClCompile Include="..\Classes\AttackManager.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="Collision.cpp">
+    <ClCompile Include="..\Classes\Character.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="GameObject.cpp">
+    <ClCompile Include="..\Classes\Collision.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="GameScene.cpp">
+    <ClCompile Include="..\Classes\GameObject.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="Sheep.cpp">
+    <ClCompile Include="..\Classes\GameScene.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="AppDelegate.cpp">
+    <ClCompile Include="..\Classes\Sheep.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
@@ -41,28 +41,28 @@
     <ClInclude Include="main.h">
       <Filter>win32</Filter>
     </ClInclude>
-    <ClInclude Include="AttackManager.h">
+    <ClInclude Include="..\Classes\AppDelegate.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="Character.h">
+    <ClInclude Include="..\Classes\AttackManager.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="Collision.h">
+    <ClInclude Include="..\Classes\Character.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="CustomPlatformMacros.h">
+    <ClInclude Include="..\Classes\Collision.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="GameObject.h">
+    <ClInclude Include="..\Classes\CustomPlatformMacros.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="GameScene.h">
+    <ClInclude Include="..\Classes\GameObject.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="Sheep.h">
+    <ClInclude Include="..\Classes\GameScene.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="AppDelegate.h">
+    <ClInclude Include="..\Classes\Sheep.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

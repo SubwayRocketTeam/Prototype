@@ -9,7 +9,7 @@ private:
 	cocos2d::Size targetSize;
 public:
 	Sheep();
-	~Sheep();
+	virtual ~Sheep();
 
 	bool init() override;
 	bool initWithFile(char* filename) override;

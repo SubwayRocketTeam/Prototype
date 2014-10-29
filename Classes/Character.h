@@ -9,7 +9,7 @@ private:
 	cocos2d::Sprite* rangeSprite;
 public:
 	Character();
-	~Character();
+	virtual ~Character();
 
 	bool init() override;
 	bool initWithFile(char* filename) override;

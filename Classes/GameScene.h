@@ -12,14 +12,12 @@ private:
 	cocos2d::Vector<Sheep*>* sheepList;
 public:
 	GameScene();
-	~GameScene();
+	virtual ~GameScene();
 
 	bool init() override;
 
 	void update(float dt) override;
 
 	void createSheep();
-	//CREATE_FUNC(GameScene);
-
-	static GameScene* create();
+	CREATE_FUNC(GameScene);
 };
